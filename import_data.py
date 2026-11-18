@@ -32,5 +32,8 @@ def import_data(filename):
                 "Symmetry": float(values[10]),
                 "Fractal Dimension": float(values[11])
             }
+
+    # List comprehension
+    radii = [tumor["Radius"] for tumor in data.values()]
     
     return data
