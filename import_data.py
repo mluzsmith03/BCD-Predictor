@@ -1,7 +1,14 @@
+import os
+
 #This is an import file, we're essentially just importing and separating the data
 filename = "wdbc.data"
+
 import pandas as pd
 def import_data(filename):
+    # Check if dataset exists
+    if not os.path.isfile(filename):
+        raise FileNotFoundError("Dataset file not found.")
+        
     data = {}
     with open(filename, 'r') as file:
         for line in file:
@@ -25,4 +32,5 @@ def import_data(filename):
                 "Symmetry": float(values[10]),
                 "Fractal Dimension": float(values[11])
             }
+    
     return data
