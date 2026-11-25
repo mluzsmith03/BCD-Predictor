@@ -32,7 +32,7 @@ def generate_data(filename):
                 "Symmetry": float(values[10]),
                 "Fractal Dimension": float(values[11])
             }
-            yield id, data[id]
+            yield id, tumor_data
 
     def import_data(filename):
         """
