@@ -4,7 +4,7 @@ import os
 filename = "wdbc.data"
 
 import pandas as pd
-def import_data(filename):
+def generate_data(filename):
     # Check if dataset exists
     if not os.path.isfile(filename):
         raise FileNotFoundError("Dataset file not found.")
@@ -19,7 +19,7 @@ def import_data(filename):
             id = int(values[0])
             #note that this only returns the mean data
             #all of our calculations will these values only
-            data[id] = {
+            tumor_data = {
                 "Diagnosis": values[1],
                 "Radius": float(values[2]),
                 "Texture": float(values[3]),
@@ -32,6 +32,16 @@ def import_data(filename):
                 "Symmetry": float(values[10]),
                 "Fractal Dimension": float(values[11])
             }
+            yield id, data[id]
+
+    def import_data(filename):
+        """
+        Imports the data into a dictonary.
+        """
+        data = {}
+
+    for id, tumor_data in generate_data(filename):
+        data[id] = tumor_data # using the generator to get the tumor data one at a time
 
     # List comprehension
     radii = [tumor["Radius"] for tumor in data.values()]
