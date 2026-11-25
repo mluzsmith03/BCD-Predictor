@@ -34,12 +34,11 @@ def generate_data(filename):
             }
             yield id, tumor_data
 
-    def import_data(filename):
-        """
-        Imports the data into a dictonary.
-        """
-        data = {}
-
+def import_data(filename):
+    """
+    Imports the data into a dictonary.
+    """
+    data = {}
     for id, tumor_data in generate_data(filename):
         data[id] = tumor_data # using the generator to get the tumor data one at a time
 
