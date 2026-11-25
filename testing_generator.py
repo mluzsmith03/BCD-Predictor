@@ -22,7 +22,7 @@ for tumor_id, tumor_data in data.items():
 
 # Check that the data was imported correctly
 if len(data) == 569:
-    print("\nThe dataset was imported successfully!")
+    print("\nThe dataset was imported successfully!\n")
 
 else:
-    print("\nError something may be wrong with the dataset/Incorrect dataset.")
+    print("\nError something may be wrong with the dataset/Incorrect dataset.\n")
